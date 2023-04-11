@@ -30,7 +30,7 @@ namespace NLayer.API.Filters
                 await next.Invoke();
                 return;
             }
-            context.Result = new NotFoundObjectResult(CustomResponseDto<NoContentDto>.Fail(404, $"{typeof(T).Name}({id}) not found"));
+            context.Result = new NotFoundObjectResult(StatusCodes.ClientError.NotFound.NotFoundResponse());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using NLayer.Core.DTOs;
 using NLayer.Service.Exceptions;
+using StatusCodes.Base;
 using System.Text.Json;
 
 namespace NLayer.API.Middlewares
@@ -22,7 +23,7 @@ namespace NLayer.API.Middlewares
                         _ => 500
                     };
                     context.Response.StatusCode = statusCode;
-                    var response = CustomResponseDto<NoContentDto>.Fail(statusCode, exceptionFeature.Error.Message);
+                    var response = BaseStatus<Empty>.Fail(statusCode, exceptionFeature.Error.Message);
                     await context.Response.WriteAsync(JsonSerializer.Serialize(response));
                 });
             });

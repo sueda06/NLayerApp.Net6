@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
+using StatusCodes.Base;
 
 namespace NLayer.API.Controllers
 {
@@ -10,7 +11,7 @@ namespace NLayer.API.Controllers
     public class CustomBaseController : ControllerBase
     {
         [NonAction]
-        public IActionResult CreateActionResult<T>(CustomResponseDto<T> response)
+        public IActionResult CreateActionResult<T>(BaseStatus<T> response)
         {
             if (response.StatusCode == 204)
                 return new ObjectResult(null) 
