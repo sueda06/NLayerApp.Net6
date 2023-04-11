@@ -78,7 +78,7 @@ namespace NLayer.Caching
         {
             var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
             var productsWithCategoryDto=_mapper.Map<List<ProductWithCategoryDto>>(products);
-            return Task.FromResult( BaseStatus<List<ProductWithCategoryDto>>.Success(200,productsWithCategoryDto));
+            return Task.FromResult( StatusCodes.Successful.OK<List<ProductWithCategoryDto>>.OKResponse(productsWithCategoryDto));
         }
 
         public async Task RemoveAsync(Product entity)
