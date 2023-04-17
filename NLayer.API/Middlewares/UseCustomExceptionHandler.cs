@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using NLayer.Core.DTOs;
 using NLayer.Service.Exceptions;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Base;
 using System.Text.Json;
 
 namespace NLayer.API.Middlewares

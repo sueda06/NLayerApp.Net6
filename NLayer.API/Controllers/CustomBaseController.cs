@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Base;
 
 namespace NLayer.API.Controllers
 {

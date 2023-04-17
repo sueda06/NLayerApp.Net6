@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Validators;
+using PointoFrameworks.Validators;
 
 namespace NLayer.Service.Validations
 {

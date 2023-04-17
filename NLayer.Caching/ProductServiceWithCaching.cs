@@ -7,7 +7,8 @@ using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
 using NLayer.Service.Exceptions;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Successful;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +79,7 @@ namespace NLayer.Caching
         {
             var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
             var productsWithCategoryDto=_mapper.Map<List<ProductWithCategoryDto>>(products);
-            return Task.FromResult( StatusCodes.Successful.OK<List<ProductWithCategoryDto>>.OKResponse(productsWithCategoryDto));
+            return Task.FromResult(OK<List<ProductWithCategoryDto>>.OKResponse(productsWithCategoryDto));
         }
 
         public async Task RemoveAsync(Product entity)

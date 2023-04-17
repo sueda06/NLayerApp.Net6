@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
 using NLayer.Core.Services;
+using PointoFrameworks.StatusCodes.ClientError;
 
 namespace NLayer.API.Filters
 {
@@ -30,7 +31,7 @@ namespace NLayer.API.Filters
                 await next.Invoke();
                 return;
             }
-            context.Result = new NotFoundObjectResult(StatusCodes.ClientError.NotFound.NotFoundResponse());
+            context.Result = new NotFoundObjectResult(NotFound.NotFoundResponse());
         }
     }
 }

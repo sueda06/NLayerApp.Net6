@@ -4,7 +4,7 @@ using NLayer.Core.Models;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace NLayer.Service.Services
         {
             var category=await _categoryRepository.GetSingleCategoryByIdWithProductsAsync(categoryId);
             var categoryDto = _mapper.Map<CategoryWithProductsDto>(category);
-            return StatusCodes.Successful.OK<CategoryWithProductsDto>.OKResponse(categoryDto);
+            return PointoFrameworks.StatusCodes.Successful.OK<CategoryWithProductsDto>.OKResponse(categoryDto);
         }
     }
 }

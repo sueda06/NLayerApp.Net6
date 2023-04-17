@@ -1,6 +1,6 @@
 ﻿using NLayer.Core.DTOs;
 using NLayer.Core.Models;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

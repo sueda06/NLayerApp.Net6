@@ -5,7 +5,7 @@ using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
 using NLayer.Core.Services;
-using StatusCodes.Base;
+using PointoFrameworks.StatusCodes.Successful;
 
 namespace NLayer.API.Controllers
 {
@@ -25,7 +25,7 @@ namespace NLayer.API.Controllers
         {
             var products = await _productService.GetAllAsync();
             var productDtos = _mapper.Map<List<ProductDto>>(products.ToList());
-            return CreateActionResult(StatusCodes.Successful.OK<List<ProductDto>>.OKResponse(productDtos));
+            return CreateActionResult(OK<List<ProductDto>>.OKResponse(productDtos));
         }
 
         [HttpGet("[action]")]
@@ -40,7 +40,7 @@ namespace NLayer.API.Controllers
         {
             var product = await _productService.GetByIdAsync(id);
             var productDto = _mapper.Map<ProductDto>(product);
-            return CreateActionResult(StatusCodes.Successful.OK<ProductDto>.OKResponse(productDto));
+            return CreateActionResult(OK<ProductDto>.OKResponse(productDto));
         }
 
         [HttpPost]
@@ -48,14 +48,14 @@ namespace NLayer.API.Controllers
         {
             var product = await _productService.AddAsync(_mapper.Map<Product>(productDto)); 
             var productsDto = _mapper.Map<ProductDto>(product);
-            return CreateActionResult(StatusCodes.Successful.Created<ProductDto>.CreatedResponse(productsDto));
+            return CreateActionResult(Created<ProductDto>.CreatedResponse(productsDto));
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(ProductUpdateDto productUpdateDto)
         {
             await _productService.UpdateAsync(_mapper.Map<Product>(productUpdateDto));
-            return CreateActionResult(StatusCodes.Successful.NoContent.NoContentResponse());
+            return CreateActionResult(PointoFrameworks.StatusCodes.Successful.NoContent.NoContentResponse());
         }
 
         [HttpDelete("{id}")]
@@ -63,7 +63,7 @@ namespace NLayer.API.Controllers
         {
             var product = await _productService.GetByIdAsync(id);
             await _productService.RemoveAsync(product);
-            return CreateActionResult(StatusCodes.Successful.NoContent.NoContentResponse());
+            return CreateActionResult(PointoFrameworks.StatusCodes.Successful.NoContent.NoContentResponse());
         }
     }
 }
