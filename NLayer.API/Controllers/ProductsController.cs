@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.API.Filters;
@@ -9,6 +10,7 @@ using PointoFrameworks.StatusCodes.Successful;
 
 namespace NLayer.API.Controllers
 {
+    [Authorize]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;

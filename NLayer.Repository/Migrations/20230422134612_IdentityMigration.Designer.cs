@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NLayer.Repository;
 
@@ -11,9 +12,10 @@ using NLayer.Repository;
 namespace NLayer.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230422134612_IdentityMigration")]
+    partial class IdentityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,7 +240,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 4, 23, 21, 3, 12, 13, DateTimeKind.Local).AddTicks(7033),
+                            CreatedDate = new DateTime(2023, 4, 22, 16, 46, 12, 593, DateTimeKind.Local).AddTicks(4600),
                             Name = "Kalem 1",
                             Price = 100m,
                             Stock = 20
@@ -247,7 +249,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 4, 23, 21, 3, 12, 13, DateTimeKind.Local).AddTicks(7044),
+                            CreatedDate = new DateTime(2023, 4, 22, 16, 46, 12, 593, DateTimeKind.Local).AddTicks(4611),
                             Name = "Kalem 2",
                             Price = 200m,
                             Stock = 30
@@ -256,7 +258,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 4, 23, 21, 3, 12, 13, DateTimeKind.Local).AddTicks(7045),
+                            CreatedDate = new DateTime(2023, 4, 22, 16, 46, 12, 593, DateTimeKind.Local).AddTicks(4612),
                             Name = "Kalem 3",
                             Price = 600m,
                             Stock = 60
@@ -265,7 +267,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 4, 23, 21, 3, 12, 13, DateTimeKind.Local).AddTicks(7046),
+                            CreatedDate = new DateTime(2023, 4, 22, 16, 46, 12, 593, DateTimeKind.Local).AddTicks(4613),
                             Name = "Kitap 1",
                             Price = 600m,
                             Stock = 60
@@ -274,7 +276,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 4, 23, 21, 3, 12, 13, DateTimeKind.Local).AddTicks(7047),
+                            CreatedDate = new DateTime(2023, 4, 22, 16, 46, 12, 593, DateTimeKind.Local).AddTicks(4614),
                             Name = "Kitap 2",
                             Price = 6600m,
                             Stock = 320
@@ -399,23 +401,6 @@ namespace NLayer.Repository.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "59f09918-a9e4-495e-88f0-7c5415ffbb2a",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e5aab7c8-a410-46eb-95fe-fad81081d4e3",
-                            Email = "suedakin.0@gmail.com",
-                            EmailConfirmed = false,
-                            FirstName = "Sueda",
-                            LastName = "Akın",
-                            LockoutEnabled = false,
-                            Password = "111",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e2fa252-efb2-4eb5-a9f4-40970010ff39",
-                            TwoFactorEnabled = false
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
