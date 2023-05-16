@@ -10,7 +10,7 @@ using PointoFrameworks.StatusCodes.Successful;
 
 namespace NLayer.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;

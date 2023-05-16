@@ -35,8 +35,14 @@ namespace NLayer.API.Controllers
             }
             return CreateActionResult(PointoFrameworks.StatusCodes.Successful.Created<RegisterModelDto>.CreatedResponse(registerModelDto));
         }
-
-        [HttpPost("login")]
+//        {
+//  "firstName": "xyz",
+//  "lastName": "abc",
+//  "userName": "aacccddd",
+//  "email": "abc@gmail.com",
+//  "password": "Xcdr1234*"
+//}
+    [HttpPost("login")]
         public async Task<IActionResult> Authenticate([FromBody] LoginModelDto user)
         {
             if (!await _authService.ValidateUserAsync(user))
